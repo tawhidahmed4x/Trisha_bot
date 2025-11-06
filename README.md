@@ -37,13 +37,9 @@ If you find any issues, please report them!
 Tutorial has been uploaded on YouTube
 - For mobile phone: https://youtu.be/zJsemXLaRbY?si=f0PE6L4oCGzYBwPn
 
+
   
 
-<div align="center">
-			<h3>Gmail:
-			<a href="mahmudx077@gmail.com" style="color: green;">MahMUDx7 </a>
-				<br>
-	𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤: <a href="https://www.facebook.com/mahmud0x7" style="color: black;">MahMUD</a></h3></div>
 
 <img align="center" src="https://i.imgur.com/UM3ekFf.jpeg"/>
 
