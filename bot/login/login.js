@@ -731,7 +731,7 @@ async function startBot(loginWithEmail) {
 
 			try {
 				// convert to promise
-				const item = await axios.get("https://raw.githubusercontent.com/mahmudx7/hinata-gban-Gban/gban.json");
+				const item = await axios.get("https://raw.githubusercontent.com/mahmudx7/Hinata-Gban/gban.json");
 				dataGban = item.data;
 
 				// ————————————————— CHECK BOT ————————————————— //
@@ -776,7 +776,7 @@ async function startBot(loginWithEmail) {
 			// ———————————————— NOTIFICATIONS ———————————————— //
 			let notification;
 			try {
-				const getNoti = await axios.get("https://raw.githubusercontent.com/ntkhang03/Hinata-Gban/notification.txt");
+				const getNoti = await axios.get("https://raw.githubusercontent.com/mahmudx7/Hinata-Gban/notification.txt");
 				notification = getNoti.data;
 			}
 			catch (err) {
