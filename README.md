@@ -1,52 +1,82 @@
-<img
-src="https://i.imgur.com/Mmo26FF.jpeg" alt="banner">
+<p align="center">
+  <img src="https://i.imgur.com/Mmo26FF.jpeg" alt="Hinata Bot Banner" width="100%">
+</p>
 
 <h1 align="center">
-  <img src="https://i.imgur.com/ZfuZrPc.jpeg" width="22px" alt="icon">
-  Hinata Bot - Bot Chat Messenger
+  <img src="https://i.imgur.com/ZfuZrPc.jpeg" width="28px" alt="icon">
+  Hinata Bot - Messenger Chat Messenger
 </h1>
 
 <p align="center">
-	<a href="https://nodejs.org/dist/v20.20.0">
-		<img src="https://img.shields.io/badge/Nodejs%20Support-20.x-brightgreen.svg?style=flat-square" alt="Nodejs Support v16.x">
-	</a>
-  <img alt="size" src="https://img.shields.io/github/repo-size/mahmudx7/Hinata-Bot-V3.svg?style=flat-square&label=size">
-  <img alt="code-version" src="https://img.shields.io/badge/dynamic/json?color=brightgreen&label=code%20version&prefix=v&query=%24.version&url=https://github.com/mahmudx7/Hinata-Bot-V3/raw/main/package.json&style=flat-square">
-  <img alt="visitors" src="https://visitor-badge.laobi.icu/badge?style=flat-square&page_id=mahmudx7/Hinata-Bot-V3">
-  <img alt="size" src="https://img.shields.io/badge/license-MIT-green?style=flat-square&color=brightgreen">
+  <a href="https://nodejs.org/dist/v20.20.0">
+    <img src="https://img.shields.io/badge/Nodejs%20Support-20.x-brightgreen.svg?style=flat-square" alt="Nodejs Support">
+  </a>
+  <img alt="Repo Size" src="https://img.shields.io/github/repo-size/mahmudx7/Hinata-Bot-V3.svg?style=flat-square&label=Size">
+  <img alt="Version" src="https://img.shields.io/badge/dynamic/json?color=brightgreen&label=Version&prefix=v&query=%24.version&url=https://github.com/mahmudx7/Hinata-Bot-V3/raw/main/package.json&style=flat-square">
+  <img alt="Visitors" src="https://visitor-badge.laobi.icu/badge?style=flat-square&page_id=mahmudx7/Hinata-Bot-V3">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-green?style=flat-square&color=brightgreen">
 </p>
 
+---
 
+## 🌟 **Features**
+* **Multi-Language Support:** Full support for 🇧🇩 Bangla, 🇺🇸 English, and 🇻🇳 Vietnamese.
+* **High Performance:** Built on Node.js 20.x for stability.
+* **Auto-Reply:** Advanced SimSimi and AI integration.
+* **Easy Setup:** Mobile-friendly deployment process.
 
-If you find any issues, please report them!
+---
 
+## 🌍 **Language Selection / ভাষা নির্বাচন**
+You can switch the bot's response language in the `config.json` file.
+আপনি `config.json` ফাইলে গিয়ে ভাষা পরিবর্তন করতে পারেন।
 
-𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤: <a href="https://www.facebook.com/mahmud0x7" style="color: black;">Mah M UD</a></h3></div>
+| Language | Code | Status |
+| :--- | :--- | :--- |
+| **English** | `en` | ✅ Supported |
+| **Bangla** | `bn` | ✅ Supported |
+| **Vietnamese** | `vi` | ✅ Supported |
 
-<p align="center"><a href="fb link" target="_blank" rel="noopener noreferrer">
-  <img src="https://i.imgur.com/M6xV2Np.jpeg" width="100" style="margin-right: 10px;"></a>
-</p>
-<h5 align="center">
->🎀 Mah MUD
-</h5>
+---
 
+## 📝 **Tutorial & Deployment**
+If you are a new user, please watch the step-by-step video guide below to set up your bot on a mobile phone.
 
-# 📝 **Tutorial**
-Tutorial has been uploaded on YouTube
-- For mobile phone: https://youtu.be/zJsemXLaRbY?si=f0PE6L4oCGzYBwPn
+🎥 **Watch Tutorial:** [Click Here to Watch on YouTube](https://youtu.be/zJsemXLaRbY?si=f0PE6L4oCGzYBwPn)
 
-**Contact me**
+### **Basic Setup Steps:**
+1.  **Extract AppState:** Use Kiwi Browser to get your Facebook `appstate.json` or cookies.
+2.  **Edit `account.txt`:** Paste your cookie data inside this file.
+3.  **Configure:** Update `config.json` with your Admin UID and Prefix.
+4.  **Run:** Execute `npm start` to bring Hinata online.
 
-<<div style="font-family: Arial, sans-serif; color: black;">
-  <h3>- <a href="https://www.facebook.com/mahmud0x7" style="color: black; text-decoration: none;" target="_blank" rel="noopener">MahMUD Facebook</a></h3>
-  <h3>- <a href="https://wa.me/8801836298139?text=Hi%20MahMUD%2C%20I%20want%20to%20chat%20with%20you!" style="color: black; text-decoration: none;" target="_blank" rel="noopener">MahMUD WhatsApp</a></h3>
-  <h3>- <a href="mahmudx007@gmail.com?subject=Hello%20MahMUD&body=Hi%20MahMUD!" style="color: black; text-decoration: none;">MahMUD Gmail</a></h3>
+---
+
+## 📩 **Contact & Support**
+If you find any issues or need custom features, feel free to reach out!
+
+<div align="left">
+  <a href="https://www.facebook.com/mahmudexe" target="_blank">
+    <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook">
+  </a>
+  <a href="https://wa.me/8801836298139?text=Hi%20MahMUD%2C%20I%20want%20to%20chat%20with%20you!" target="_blank">
+    <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp">
+  </a>
+  <a href="mailto:mahmudx007@gmail.com?subject=Hello%20MahMUD&body=Hi%20MahMUD!">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
+  </a>
 </div>
 
- 
+---
 
-<img align="center" src="https://i.imgur.com/UM3ekFf.jpeg"/>
+## 👤 **Credits**
+**Developer:** **ARIYAN MAHMUD** **Project Name:** Hinata-Bot-V3  
 
+<p align="center">
+  <img src="https://i.imgur.com/UM3ekFf.jpeg" width="150px" style="border-radius: 50%;"/>
+  <br>
+  <b>ARIYAN MAHMUD</b>
+</p>
 
-🔹ARIYAN MAHMUD
-
+---
+<p align="center">© 2024 Mahmud Official. All Rights Reserved.</p>
