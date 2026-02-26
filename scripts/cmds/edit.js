@@ -10,7 +10,7 @@ const mahmud = async () => {
 module.exports = {
         config: {
                 name: "edit",
-                aliases: ["imgedit", "এডিট"],
+                aliases: ["imgedit"],
                 version: "1.7",
                 author: "MahMUD",
                 countDown: 10,
@@ -34,19 +34,19 @@ module.exports = {
         langs: {
                 bn: {
                         noInput: "× বেবি, একটি ছবিতে রিপ্লাই দিয়ে বলো কি এডিট করতে হবে! 🪄",
-                        wait: "🪄 | তোমার ছবি এডিট করা হচ্ছে, একটু অপেক্ষা করো বেবি...",
+                        wait: "🔄 | তোমার ছবি এডিট করা হচ্ছে, একটু অপেক্ষা করো বেবি...",
                         success: "✅ | তোমার এডিট করা ছবি তৈরি: \"%1\"",
                         error: "× এডিট করতে সমস্যা হয়েছে: %1। প্রয়োজনে Contact MahMUD।"
                 },
                 en: {
                         noInput: "× Baby, please reply to a photo with your prompt to edit it! 🪄",
-                        wait: "🪄 | Editing your image, please wait baby...",
+                        wait: "🔄 | Editing your image, please wait...",
                         success: "✅ | Edited image for: \"%1\"",
                         error: "× Failed to edit: %1. Contact MahMUD for help."
                 },
                 vi: {
                         noInput: "× Cưng ơi, vui lòng phản hồi ảnh kèm lời nhắc chỉnh sửa! 🪄",
-                        wait: "🪄 | Đang chỉnh sửa ảnh, vui lòng chờ chút nhé...",
+                        wait: "🔄 | Đang chỉnh sửa ảnh, vui lòng chờ chút nhé...",
                         success: "✅ | Ảnh đã chỉnh sửa cho: \"%1\"",
                         error: "× Lỗi chỉnh sửa: %1. Liên hệ MahMUD để hỗ trợ."
                 }
