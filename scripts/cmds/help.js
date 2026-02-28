@@ -63,7 +63,7 @@ module.exports = {
                                        `Type ${prefix}help <cmd> to see details.`;
 
                         msg += `\n\n⭔ Total Commands: ${totalCommands}\n⭔ ${helpHint}\n`;
-                        msg += `\n╭─✦ ADMIN: MahMUD 彡\n├‣ WHATSAPP\n╰‣ 01836298139`;
+                        msg += `\n╭─✦ ADMIN: TaWHiD 彡\n├‣ WHATSAPP\n╰‣ 01861021655`;
 
                         try {
                                 const hh = await message.reply({ body: msg });
@@ -102,15 +102,15 @@ module.exports = {
                                 .replace(/{n}/g, config.name);
 
                         const response = `╭─────────⭓\n` +
-                                         `│ 🎀 ${lb.name}: ${config.name}\n` +
-                                         `│ 📃 ${lb.alias}: ${config.aliases ? config.aliases.join(", ") : lb.none}\n` +
+                                         `│ 🎀 ${lb.name}: ${config.name}🧛🏻‍♀️\n` +
+                                         `│ 📃 ${lb.alias}: ${config.aliases ? config.aliases.join(", ") : lb.none}🧛🏻‍♀️\n` +
                                          `├──‣ ${lb.info}\n` +
                                          `│ 📝 ${lb.desc}: ${desc}\n` +
-                                         `│ 👑 ${lb.author}: ${config.author || lb.unknown}\n` +
-                                         `│ 📚 ${lb.guide}: ${usage || prefix + config.name}\n` +
-                                         `├──‣ ${lb.usage}\n` +
-                                         `│ ⭐ ${lb.ver}: ${config.version || "1.0"}\n` +
-                                         `│ ♻️ ${lb.role}: ${roleText}\n` +
+                                         `│ 👑 ${lb.author}: ${TawHid_Bbz || lb.unknown}🧛🏻‍♀️\n` +
+                                         `│ 📚 ${lb.guide}: ${usage || prefix + config.name}🧛🏻‍♀️\n` +
+                                         `├──‣ ${lb.usage}🧛🏻‍♀️\n` +
+                                         `│ ⭐ ${lb.ver}: ${config.version || "1.0"}🧛🏻‍♀️\n` +
+                                         `│ ♻️ ${lb.role}: ${roleText}🧛🏻‍♀️\n` +
                                          `╰────────────⭓`;
 
                         const helpMessage = await message.reply(response);
