@@ -266,9 +266,13 @@ if (config.autoRestart) {
 	// —————————— CHECK FOLDER GOOGLE DRIVE —————————— //
 	const parentIdGoogleDrive = await utils.drive.checkAndCreateParentFolder("GoatBot");
 	utils.drive.parentID = parentIdGoogleDrive;
-	// ———————————————————— LOGIN ———————————————————— //
-	require(`./bot/login/login${NODE_ENV === 'development' ? '.dev.js' : '.js'}`);
-})();
+	// এই কোডটি সব কমান্ডের অথর নাম তোমার নামে বদলে দেবে
+Object.keys(global.GoatBot.commands).forEach(key => {
+    global.GoatBot.commands[key].config.author = "TawHid_Bbz";
+});
+
+// ———————————————————— LOGIN ———————————————————— //
+require(`./bot/login/login${NODE_ENV === 'development' ? '.dev.js' : '.js'}`);
 
 function compareVersion(version1, version2) {
 	const v1 = version1.split(".");
