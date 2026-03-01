@@ -2,36 +2,30 @@ module.exports = {
         config: {
                 name: "fork",
                 version: "1.7",
-                author: "MahMUD",
+                author: "TawHid_Bbz",
                 countDown: 5,
                 role: 0,
                 description: {
-                        bn: "বোটের গিটহাব লিঙ্ক এবং টিউটোরিয়াল ভিডিও পান",
-                        en: "Get the GitHub fork link and tutorial video",
+                        bn: "কি ভেবেছো? বটের টিউটোরিয়াল দিবো? কখনোই না, মারা খাও বেবী",
+                        en: "ki Vabso! Bot er Tutorial Dibo? Kokkhonoi na. Mara Khau Baby",
                         vi: "Lấy liên kết fork GitHub và video hướng dẫn"
                 },
-                category: "github",
+                category: "facebook",
                 guide: {
-                        bn: '   {pn}: গিটহাব লিঙ্ক পেতে',
-                        en: '   {pn}: Get the fork link',
+                        bn: '   {pn}: কন্টাক্ট করতে',
+                        en: '   {pn}: For Contact',
                         vi: '   {pn}: Lấy liên kết fork'
                 }
         },
+onStart: async function ({ api, message, event }) {
+    const facebooklink = "https://www.facebook.com/suhan420rx";
+    const facebook2link = "https://www.facebook.com/tawhid.ahmed420";
 
-        onStart: async function ({ api, message, event }) {
-                const authorName = String.fromCharCode(77, 97, 104, 77, 85, 68); 
-                if (this.config.author !== authorName) {
-                        return api.sendMessage("You are not authorized to change the author name.", event.threadID, event.messageID);
-                }
+    const response = `✨ | Get In Touch On Facebook:\n\n` +
+                     `🔗 ${facebooklink}\n\n` +
+                     `🔹 Another Account:\n` +
+                     `🔗 ${facebook2link}`;
 
-                const githubLink = "https://github.com/mahmudx7/hinata-Bot-V3";
-                const youtubeLink = "https://youtu.be/zJsemXLaRbY?si=8O-O-nSXgQlsNvnU";
-
-                const response = `✨ | Fork this project here:\n\n` +
-                                 `${githubLink}\n\n` +
-                                 `• Bot make tutorial video:\n` +
-                                 `${youtubeLink}`;
-
-                return api.sendMessage(response, event.threadID, event.messageID);
-        }
+    return api.sendMessage(response, event.threadID, event.messageID);
+  }
 };
