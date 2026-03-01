@@ -4,10 +4,10 @@ const fs = require("fs-extra");
 module.exports = {
   config: {
     name: "pairx",
-    version: "1.0.2",
+    version: "1.0.5",
     role: 0,
     author: "TawHid_Bbz",
-    countDown: 10,
+    countDown: 5,
     description: "Find your love",
     category: "love",
     guide: {
@@ -16,27 +16,28 @@ module.exports = {
     }
   },
 
-  onStart: async function ({ api, event, threadsData, usersData, message }) {
-    const { threadID, senderID, messageID } = event;
+  onStart: async function ({ api, event, usersData, message }) {
+    const { threadID, senderID, messageID, participantIDs } = event;
     
     try {
-      const threadInfo = await api.getThreadInfo(threadID);
-      const allMembers = threadInfo.participantIDs;
-
-      const filteredMembers = allMembers.filter(id => id !== senderID && id !== api.getCurrentUserID());
+      // নিজের আইডি এবং বটের আইডি বাদ দিয়ে বাকিদের লিস্ট করা
+      const botID = api.getCurrentUserID();
+      const list = participantIDs.filter(id => id != senderID && id != botID);
       
-      if (filteredMembers.length === 0) {
+      if (list.length == 0) {
         return message.reply("বেবি, এই গ্রুপে তো তুমি ছাড়া আর কেউ নেই! কাকে খুঁজি? 💀");
       }
 
-      const partnerID = filteredMembers[Math.floor(Math.random() * filteredMembers.length)];
+      // র‍্যান্ডম পার্টনার সিলেক্ট
+      const partnerID = list[Math.floor(Math.random() * list.length)];
 
       const senderName = await usersData.getName(senderID);
       const partnerName = await usersData.getName(partnerID);
       const lovePercentage = Math.floor(Math.random() * 101);
 
-      const imageURL = `https://graph.facebook.com/${senderID}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`;
-      const partnerURL = `https://graph.facebook.com/${partnerID}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`;
+      // প্রোফাইল পিকচারের লিঙ্ক
+      const img1 = `https://graph.facebook.com/${senderID}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`;
+      const img2 = `https://graph.facebook.com/${partnerID}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`;
       
       const messages = [
         "Your souls are locked together in a dark room. 🖤",
@@ -47,30 +48,33 @@ module.exports = {
       ];
       const randomMsg = messages[Math.floor(Math.random() * messages.length)];
 
-      const path = __dirname + `/cache/pair_${senderID}.png`;
-      const canvasURL = `https://api.popcat.xyz/ship?user1=${encodeURIComponent(imageURL)}&user2=${encodeURIComponent(partnerURL)}`;
-
-      const response = await axios.get(canvasURL, { responseType: 'arraybuffer' });
-      fs.ensureDirSync(__dirname + "/cache/");
-      fs.writeFileSync(path, Buffer.from(response.data, 'binary'));
-
       let finalMsg = `╭━━━━━━━『 𝗟𝗢𝗩𝗘 𝗫 』━━━━━━━╮\n`;
-      finalMsg += `│ 🧛🏻‍♀️ 𝖯𝖺𝗋𝗍𝗇𝖾𝗋: ${partnerName}\n`;
-      finalMsg += `│ ❤️ 𝖬𝖺𝗍𝖼𝗁𝗂𝗇𝗀: ${lovePercentage}%\n`;
-      finalMsg += `│ 💀 𝖲𝗍𝖺𝗍𝗎𝗌: ${randomMsg}\n`;
+      finalMsg += `│ 🧛🏻‍♀️ Partner: ${partnerName}\n`;
+      finalMsg += `│ ❤️ Matching: ${lovePercentage}%\n`;
+      finalMsg += `│ 💀 Status: ${randomMsg}\n`;
       finalMsg += `╰━━━━━━━━━━━━━━━━━━━━━━━╯\n`;
-      finalMsg += `✨ 𝖣𝗈𝗇'𝗍 𝖯𝗅𝖺𝗒 𝖶𝗂𝗍ʜ 𝖬𝗒 𝖬𝗂𝗇𝖽!`;
+      finalMsg += `✨ Don't Play With My Mind!`;
+
+      // ছবি ডাউনলোড এবং সেন্ড করা
+      const path1 = __dirname + `/cache/p1_${senderID}.png`;
+      const path2 = __dirname + `/cache/p2_${partnerID}.png`;
+
+      const getImg1 = (await axios.get(img1, { responseType: 'arraybuffer' })).data;
+      fs.writeFileSync(path1, Buffer.from(getImg1, 'utf-8'));
+      
+      const getImg2 = (await axios.get(img2, { responseType: 'arraybuffer' })).data;
+      fs.writeFileSync(path2, Buffer.from(getImg2, 'utf-8'));
 
       return api.sendMessage({
         body: finalMsg,
-        attachment: fs.createReadStream(path)
+        attachment: [fs.createReadStream(path1), fs.createReadStream(path2)]
       }, threadID, () => {
-        if (fs.existsSync(path)) fs.unlinkSync(path);
+        if (fs.existsSync(path1)) fs.unlinkSync(path1);
+        if (fs.existsSync(path2)) fs.unlinkSync(path2);
       }, messageID);
 
     } catch (e) {
       console.error(e);
-      // তোমার রিকোয়েস্ট অনুযায়ী এরর মেসেজটি বদলে দিলাম
       return message.reply("বেবি, কিছু একটা সমস্যা হয়েছে! দয়া করে Tawhid baby এর সাথে কন্টাক্ট করো। 💀");
     }
   }
