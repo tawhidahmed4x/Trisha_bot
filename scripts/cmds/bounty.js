@@ -1,46 +1,64 @@
-module.exports.config = {
-    name: "bounty",
-    version: "2.3.0",
-    hasPermssion: 0,
-    credits: "Tawhid Ahmed",
-    description: "কারো নামে হুলিয়া বা বাউন্টি জারি করার ফানি কমান্ড",
-    Category: "Fun",
-    usages: "bounty @mention / reply to message",
-    cooldowns: 5
-};
+.cmd install brainwash.js module.exports = {
+    config: {
+        name: "brainwash",
+        version: "2.2.0",
+        author: "Tawhid Ahmed",
+        countDown: 5,
+        role: 0,
+        description: {
+            bn: "কাউকে মেনশন দিয়ে বা রিপ্লাই দিয়ে ফানি ব্রেইনওয়াশ করার কমান্ড",
+            en: "Brainwash someone by mention or reply"
+        },
+        category: "fun",
+        guide: {
+            bn: "{pn} @mention / reply to message",
+            en: "{pn} @mention / reply to message"
+        }
+    },
 
-module.exports.onStart = async function ({ api, event, args, usersData }) {
-    const { threadID, messageID, mentions, type, messageReply } = event;
+    onStart: async function ({ api, event, usersData }) {
+        const { threadID, messageID, mentions, type, messageReply } = event;
 
-    let mentionID;
+        let mentionID;
 
-    // ১. রিপ্লাই বা মেনশন চেক
-    if (type === "message_reply") {
-        mentionID = messageReply.senderID;
-    } else if (Object.keys(mentions).length > 0) {
-        mentionID = Object.keys(mentions)[0];
-    } else {
-        return api.sendMessage("⚠️ আরে সোনা, কার নামে হুলিয়া জারি করবে তাকে মেনশন দাও বা রিপ্লাই করো! 🤠", threadID, messageID);
+        // ১. রিপ্লাই বা মেনশন থেকে আইডি নেওয়া
+        if (type === "message_reply") {
+            mentionID = messageReply.senderID;
+        } else if (Object.keys(mentions).length > 0) {
+            mentionID = Object.keys(mentions)[0];
+        } else {
+            return api.sendMessage("⚠️ আরে সোনা, কাকে ব্রেইনওয়াশ করবে তাকে মেনশন দাও অথবা তার মেসেজে রিপ্লাই করো! 🙄", threadID, messageID);
+        }
+
+        try {
+            const name = await usersData.getName(mentionID) || "User";
+
+            const lines = [
+                `🧠 [ 𝗕𝗿𝗮𝗶𝗻𝘄𝗮𝘀𝗵𝗶𝗻𝗴 𝗦𝘁𝗮𝗿𝘁𝗲𝗱 ] 🧠\n━━━━━━━━━━━━━━━━━━\n🌀 ${name}, তোমার মাথার ভেতরে জং ধরা নাট-বল্টু পরিষ্কার করা হচ্ছে...`,
+                `🧼 সাবান আর হুইল পাউডার দিয়ে ${name}-এর মগজ ধোলাই চলছে... উফ্! কত ময়লা! 🤮`,
+                `💾 ${name}-এর পুরনো আবর্জনা মেমোরি ডিলিট করা হচ্ছে... [████████▒▒] 𝟴𝟬%`,
+                `🚫 Warning! ${name}-এর মাথায় বুদ্ধির বদলে শুধু গোবর পাওয়া গেছে! সেটি সরানো হচ্ছে...`,
+                `✨ সফলভাবে ব্রেইনওয়াশ করা হয়েছে! এখন ${name} নিজেকে Tawhid Ahmed-এর পাখি মনে করছে! 😎`,
+                `🎀 এখন থেকে ${name} আর আজেবাজে চিন্তা করবে না, শুধু বটের কথা শুনবে!`,
+                `✅ 𝗗𝗼𝗻𝗲! ${name} এখন একদম নতুনের মতো রিফ্রেশড! কিন্তু বুদ্ধি আর ফিরে আসলো না... 😹`
+            ];
+
+            await api.sendMessage(`🔄 ${name}-কে ব্রেইনওয়াশ করা শুরু করলাম সোনা, একটু সময় দাও...`, threadID, messageID);
+
+            // একে একে মেসেজ পাঠানোর লজিক (Loop)
+            for (const line of lines) {
+                // ২.৫ সেকেন্ড অপেক্ষা
+                await new Promise(resolve => setTimeout(resolve, 4500));
+                api.sendMessage(line, threadID);
+            }
+
+            // ফাইনাল মেসেজ
+            return setTimeout(() => {
+                api.sendMessage(`🎊 অভিনন্দন ${name}! তোমার ব্রেইন এখন একদম ক্লিন!\n━━━━━━━━━━━━━━━━━━\n👤 𝗢𝘄𝗻𝗲𝗿: 𝗧𝗮𝘄𝗵𝗶𝗱 𝗔𝗵𝗺𝗲𝗱\n🎀 𝗔𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁: 𝗡𝗲𝘇𝘂𝗸𝗼 𝗖𝗵𝗮𝗻`, threadID);
+            }, 3000);
+
+        } catch (err) {
+            return api.sendMessage(`❌ এরর এসেছে সোনা: ${err.message}`, threadID, messageID);
+        }
     }
-
-    const name = await usersData.getName(mentionID) || "Unknown Criminal";
-    const amount = Math.floor(Math.random() * 90000) + 10000; // ১০,০০০ থেকে ১,০০,০০০ পর্যন্ত রেন্ডম অ্যামাউন্ট
-
-    const bountyLines = [
-        `📢 [ 𝗪𝗔𝗡𝗧𝗘𝗗 𝗔𝗟𝗘𝗥𝗧 ] 📢\n━━━━━━━━━━━━━━━━━━\n⚠️ সতর্কবার্তা! এলাকায় এক ভয়ংকর অপরাধী দেখা গেছে!`,
-        `👤 𝗡𝗮𝗺𝗲: ${name}\n🕵️ 𝗖𝗿𝗶𝗺𝗲: অতিরিক্ত কিউটনেস দিয়ে মানুষের মন চুরি করা! 💘`,
-        `💰 𝗕𝗼𝘂𝗻𝘁𝘆 𝗣𝗿𝗶𝘇𝗲: $${amount.toLocaleString()}\n📌 যে একে ধরে দিতে পারবে, তাকে Tawhid Ahmed পুরস্কৃত করবে!`,
-        `🔥 𝗦𝘁𝗮𝘁𝘂𝘀: মোস্ট ওয়ান্টেড (𝗠𝗼𝘀𝘁 𝗪𝗮𝗻𝘁𝗲𝗱)\n🚫 একে দেখামাত্রই জড়িয়ে ধরার আদেশ দেওয়া হলো! 😹`,
-        `✅ এই হুলিয়া জারি করেছেন স্বয়ং অ্যাডমিন Tawhid Ahmed!`
-    ];
-
-    api.sendMessage(`📜 ${name}-এর নামে হুলিয়া জারি করা হচ্ছে... একটু দাঁড়াও সোনা!`, threadID, messageID);
-
-    // একে একে মেসেজ পাঠানোর লজিক (Delay 2 Seconds)
-    for (const line of bountyLines) {
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        api.sendMessage(line, threadID);
-    }
-
-    return api.sendMessage(`⚖️ বিচারকার্য সম্পন্ন হলো!\n━━━━━━━━━━━━━━━━━━\n👤 𝗢𝘄𝗻𝗲𝗿: 𝗧𝗮𝘄𝗵𝗶𝗱 𝗔𝗵𝗺𝗲𝗱\n🎀 𝗔𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁: 𝗡𝗲𝘇𝘂𝗸𝗼 𝗖𝗵𝗮𝗻`, threadID);
 };
