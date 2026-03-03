@@ -4,7 +4,7 @@ module.exports.config = {
     hasPermssion: 0,
     credits: "Tawhid Ahmed",
     description: "বটের প্রিক্স এবং আপটাইম চেক করার কমান্ড",
-    commandCategory: "System",
+    Category: "System",
     usages: "prefix",
     cooldowns: 5
 };
