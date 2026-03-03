@@ -4,7 +4,7 @@ module.exports.config = {
     hasPermssion: 0,
     credits: "Tawhid Ahmed",
     description: "Randomly pair with a group member",
-    commandCategory: "Love",
+    Category: "Love",
     usages: "pair",
     cooldowns: 10
 };
