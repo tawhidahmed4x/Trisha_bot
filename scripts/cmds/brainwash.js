@@ -4,7 +4,7 @@ module.exports.config = {
     hasPermssion: 0,
     credits: "Tawhid Ahmed",
     description: "কাউকে মেনশন দিয়ে বা রিপ্লাই দিয়ে ফানি ব্রেইনওয়াশ করার কমান্ড",
-    commandCategory: "Fun",
+    Category: "Fun",
     usages: "brainwash @mention / reply to message",
     cooldowns: 5
 };
