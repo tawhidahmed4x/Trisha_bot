@@ -46,7 +46,7 @@ module.exports = {
 
             // একে একে মেসেজ পাঠানোর লজিক (Loop with Delay)
             for (const line of bountyLines) {
-                await new Promise(resolve => setTimeout(resolve, 2000));
+                await new Promise(resolve => setTimeout(resolve, 5000));
                 api.sendMessage(line, threadID);
             }
 
